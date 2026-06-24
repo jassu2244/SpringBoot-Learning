@@ -1,0 +1,23 @@
+# Java / Eclipse / Tomcat build output
+**/build/
+**/bin/
+**/out/
+**/target/
+**/.settings/
+**/.classpath
+**/.project
+**/.factorypath
+**/.springBeans
+**/Servers/
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini

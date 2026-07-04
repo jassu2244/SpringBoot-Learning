@@ -10,6 +10,7 @@ import com.telusko.model.Student;
 public class GetRecordApp {
 
 	public static void main(String[] args) {
+		// this is Level 1 caching or L1 caching
 			SessionFactory sessionFactory = new Configuration().configure()
 					.addAnnotatedClass(Student.class).buildSessionFactory();
 			Session session1 =null;

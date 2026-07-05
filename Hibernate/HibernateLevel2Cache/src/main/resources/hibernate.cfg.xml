@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- MySQL JDBC Driver -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <!-- Database URL -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jdbclearning</property>
+
+        <!-- Database Username -->
+        <property name="hibernate.connection.username">root</property>
+
+        <!-- Database Password -->
+        <property name="hibernate.connection.password">my_sql_password</property>
+
+        <!-- Automatically update the database schema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Show SQL Queries -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Format SQL Queries -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- ========================================================= -->
+        <!--                Hibernate Level 2 Cache                    -->
+        <!-- ========================================================= -->
+
+        <!-- Enable Hibernate Second Level Cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+
+        <!--
+            Hibernate 6 no longer supports the old EhCacheRegionFactory
+            used in Hibernate 5.
+
+            Hibernate 6 uses the standard JCache (JSR-107) API to communicate
+            with cache providers like Ehcache.
+
+            Flow:
+
+                Hibernate 6
+                     ↓
+                  JCache
+                     ↓
+                 Ehcache 3
+
+            So Hibernate communicates with JCache, and JCache delegates the
+            caching operations to Ehcache.
+        -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+
+        <!--
+            Specify the JCache provider.
+
+            Here we are using Ehcache 3 as the JCache provider.
+        -->
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+
+        <!--
+            Specify the location of the Ehcache configuration file.
+
+            Since Hibernate 6 uses JCache instead of directly communicating
+            with Ehcache, we need an ehcache.xml file (or an equivalent Java
+            configuration).
+
+            This file tells Ehcache how to configure the cache, such as:
+                • Cache names
+                • Heap size
+                • Expiry (TTL)
+                • Eviction policy
+                • Statistics
+
+            In Hibernate 5, direct Ehcache integration often worked without
+            explicitly creating this file for simple examples. In Hibernate 6,
+            when using Ehcache as the JCache provider, an ehcache.xml file is
+            generally required.
+        -->
+        <property name="hibernate.javax.cache.uri">ehcache.xml</property>
+
+    </session-factory>
+
+</hibernate-configuration>

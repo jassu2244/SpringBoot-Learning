@@ -1,8 +1,64 @@
-# Java / Eclipse / Tomcat build output
+# Java / Spring Boot build output
+**/target/
 **/build/
 **/bin/
 **/out/
-**/target/
+**/.apt_generated/
+**/.apt_generated_tests/
+**/.sts4-cache/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Keep source-level target/build directories if they are intentionally used.
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Maven / Gradle local state
+**/.mvn/wrapper/maven-wrapper.jar
+**/.mvn/timing.properties
+**/.mvn/wrapper/MavenWrapperDownloader.java
+**/.gradle/
+**/gradle-app.setting
+**/gradle.properties
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+**/application-local.properties
+**/application-local.yml
+**/application-local.yaml
+**/application-dev-local.properties
+**/application-dev-local.yml
+**/application-dev-local.yaml
+**/secrets.properties
+**/secrets.yml
+**/secrets.yaml
+**/*.keystore
+**/*.jks
+**/*.p12
+**/*.pem
+**/*.key
+**/*.crt
+
+# Logs, dumps, and runtime files
+**/logs/
+*.log
+*.pid
+*.hprof
+hs_err_pid*
+replay_pid*
+
+# Eclipse / STS / Tomcat workspace files
+**/.metadata/
 **/.settings/
 **/.classpath
 **/.project
@@ -10,14 +66,26 @@
 **/.springBeans
 **/Servers/
 
-# Local secrets and environment files
-.env
-.env.*
-!.env.example
+# IntelliJ IDEA
+**/.idea/
+*.iws
+*.iml
+*.ipr
 
-# IDE and OS files
-.vscode/
-.idea/
+# VS Code
+**/.vscode/
+
+# NetBeans
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+
+# OS and editor files
 *.swp
+*.swo
+*~
+.DS_Store
 Thumbs.db
 Desktop.ini

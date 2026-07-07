@@ -12,8 +12,23 @@
 
     <!-- <bean id="alien1" class="com.telusko.Alien" scope="prototype"> </bean !-->
 
-    <bean id="alien1" class="com.telusko.Alien">
-        <property name="age" value="21"/> <!-- This line assigns the value when object is created, this is
+<!--    <bean id="alien1" class="com.telusko.Alien">-->
+
+<!--    So this autowire wires the object with reference using name-->
+<!--    <bean id="alien1" class="com.telusko.Alien" autowire="byName">-->
+
+    <bean id="alien1" class="com.telusko.Alien" autowire="byType">
+
+        <!-- AutoWiring video from here -->
+<!--        So if you don't want to mention the property explicitly and want spring framework to search for the dependency
+based on the type or name then we use autowiring -->
+        <property name="age" value="21"/>
+
+        <!-- If we explicitly mention the ref then it will reference to laptop -->
+<!--        <property name="com" ref="com1"/> -->
+
+
+       <!-- <property name="age" value="21"/> --> <!-- This line assigns the value when object is created, this is
          setter injection, This creates an object set the value to setter and then call the setter method
           and getter method to get the value !-->
 
@@ -29,8 +44,8 @@
 
 <!-- Index number is also to specify the sequence according to constructor so now we can have 2 same variables as we
 are specifying the indexes here-->
-        <constructor-arg index="0" value="21"/>
-        <constructor-arg index="1" ref="lap1"/>
+<!--        <constructor-arg index="0" value="21"/>-->
+<!--        <constructor-arg index="1" ref="lap1"/>-->
 
 <!-- This also requires the correct sequence so indexing is ideal way to do this as no sequence is required so name
 is for reference directly -->
@@ -41,7 +56,10 @@ is for reference directly -->
         <!--    <property name="lap" ref="lap1"/>  !--> <!-- This id here inside the name separates the objects !-->
     </bean>
 
-    <bean id="lap1" class="com.telusko.Laptop">
+    <bean id="com1" class="com.telusko.Laptop">
+    </bean>
+
+    <bean id="com2" class="com.telusko.Desktop">
     </bean>
 
 </beans>

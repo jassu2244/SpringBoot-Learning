@@ -10,7 +10,7 @@ public class Alien {
     private Computer com;
 
     public Alien() {
-        System.out.println("Object created");
+//        System.out.println("Object created");
     }
 
     // this annotation helps to remove that sequence problem while assigning the value, so if this annotation is here
@@ -28,7 +28,7 @@ public class Alien {
     }
 
     public void setAge(int age) {
-        System.out.println("Setter called");
+//        System.out.println("Setter called");
         this.age = age;
     }
 

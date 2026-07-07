@@ -13,14 +13,32 @@
     <!-- <bean id="alien1" class="com.telusko.Alien" scope="prototype"> </bean !-->
 
     <bean id="alien1" class="com.telusko.Alien">
-        <property name="age" value="21"></property> <!-- This line assigns the value when object is created, this is
+        <property name="age" value="21"/> <!-- This line assigns the value when object is created, this is
          setter injection, This creates an object set the value to setter and then call the setter method
           and getter method to get the value !-->
 
         <!-- To inject the value or to wire the Laptop object with Alien we need to give the same value as bean id in
-         ref of this property so first we create a bean for the laptop then we give the same value as id to ref
-          -> for primitive values we use value, for reference we use ref, but first we need a bean else it will not work !-->
-        <property name="lap" ref="lap1"></property> <!-- This id here inside the name separates the objects !-->
+        ref of this property so first we create a bean for the laptop then we give the same value as id to ref
+        -> for primitive values we use value, for reference we use ref, but first we need a bean else it will not work !-->
+
+
+    <!-- It assigns the value according to sequence by default, To solve this mention the type here, but this works
+     if the types are different for all the objects, if type is same we can specify INDEX NUMBER-->
+<!--        <constructor-arg type="int" value="21"/>-->
+<!--        <constructor-arg type="com.telusko.Laptop" ref="lap1"/>-->
+
+<!-- Index number is also to specify the sequence according to constructor so now we can have 2 same variables as we
+are specifying the indexes here-->
+        <constructor-arg index="0" value="21"/>
+        <constructor-arg index="1" ref="lap1"/>
+
+<!-- This also requires the correct sequence so indexing is ideal way to do this as no sequence is required so name
+is for reference directly -->
+<!--        <constructor-arg name="age" value="21"/>-->
+<!--        <constructor-arg name="lap" ref="lap1"/>-->
+
+
+        <!--    <property name="lap" ref="lap1"/>  !--> <!-- This id here inside the name separates the objects !-->
     </bean>
 
     <bean id="lap1" class="com.telusko.Laptop">

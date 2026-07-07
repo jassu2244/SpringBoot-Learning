@@ -1,5 +1,7 @@
 package com.telusko;
 
+import java.beans.ConstructorProperties;
+
 public class Alien {
 
     private int age;
@@ -9,8 +11,13 @@ public class Alien {
         System.out.println("Object created");
     }
 
-    public Alien(int age) {
+    // this annotation helps to remove that sequence problem while assigning the value, so if this annotation is here
+    //it will not give sequence problem while using name in constructor-arg
+    @ConstructorProperties({"age", "lap"})
+    public Alien(int age, Laptop lap) {
+        System.out.println("Para constructor called"); // this is happening because we passed the value in xml file using constructor-arg
         this.age = age;
+        this.lap = lap;
     }
 
     public void code() {

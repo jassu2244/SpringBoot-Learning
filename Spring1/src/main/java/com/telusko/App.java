@@ -30,7 +30,7 @@ public class App
 
 //        obj2.code();
 
-        Desktop obj = (Desktop) context.getBean("com2"); // so because of this line it will create
+//        Desktop obj = (Desktop) context.getBean("com2"); // so because of this line it will create
         // the object not when main method is called but this object is still singleton
     }
 }

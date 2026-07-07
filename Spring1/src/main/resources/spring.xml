@@ -25,7 +25,16 @@ based on the type or name then we use autowiring -->
         <property name="age" value="21"/>
 
         <!-- If we explicitly mention the ref then it will reference to laptop -->
-        <property name="com" ref="com1"/>
+<!--        <property name="com" ref="com1"/>-->
+
+<!--        Inner Bean implementation-->
+
+<!--        So this is inner bean -->
+        <property name="com">
+            <bean id="com1" class="com.telusko.Laptop" primary="true">
+            </bean>
+        </property>
+
 
 
        <!-- <property name="age" value="21"/> --> <!-- This line assigns the value when object is created, this is
@@ -58,8 +67,8 @@ is for reference directly -->
 
 <!--    To solve the problem of confusion we use primary tag so it tells that whatever is primary use this one means
  create object for this one -->
-    <bean id="com1" class="com.telusko.Laptop" primary="true">
-    </bean>
+<!--    <bean id="com1" class="com.telusko.Laptop" primary="true">-->
+<!--    </bean>-->
 
     <bean id="com2" class="com.telusko.Desktop" lazy-init="true">
     </bean>

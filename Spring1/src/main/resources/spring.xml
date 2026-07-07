@@ -25,7 +25,7 @@ based on the type or name then we use autowiring -->
         <property name="age" value="21"/>
 
         <!-- If we explicitly mention the ref then it will reference to laptop -->
-<!--        <property name="com" ref="com1"/> -->
+<!--        <property name="com" ref="com2"/>-->
 
 
        <!-- <property name="age" value="21"/> --> <!-- This line assigns the value when object is created, this is
@@ -56,7 +56,9 @@ is for reference directly -->
         <!--    <property name="lap" ref="lap1"/>  !--> <!-- This id here inside the name separates the objects !-->
     </bean>
 
-    <bean id="com1" class="com.telusko.Laptop">
+<!--    To solve the problem of confusion we use primary tag so it tells that whatever is primary use this one means
+ create object for this one -->
+    <bean id="com1" class="com.telusko.Laptop" primary="true">
     </bean>
 
     <bean id="com2" class="com.telusko.Desktop">

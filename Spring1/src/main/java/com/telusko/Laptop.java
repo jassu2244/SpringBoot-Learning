@@ -1,11 +1,13 @@
 package com.telusko;
 
-public class Laptop {
-    public Laptop() {
-        System.out.println("Laptop class created");
-    }
+public class Laptop implements Computer {
 
+//    public Laptop() {
+//        System.out.println("Laptop class created");
+//    }
+
+    @Override
     public void compile() {
-        System.out.println("Compiling");
+        System.out.println("Compiling using Laptop");
     }
 }

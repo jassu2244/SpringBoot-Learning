@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- So number of beans will be here, objects of each bean will be created when we run the app !-->
+    <!-- and by default its scope is scope = "singleton, also when scope is prototype the object will
+     only be created when we type getBean(), In singleton scope, object will be created no matter what
+     when creating the container by default" !-->
+
+    <!-- <bean id="alien1" class="com.telusko.Alien" scope="prototype"> </bean !-->
+
+    <bean id="alien1" class="com.telusko.Alien">
+        <property name="age" value="21"></property> <!-- This line assigns the value when object is created, this is
+         setter injection, This creates an object set the value to setter and then call the setter method
+          and getter method to get the value !-->
+
+        <!-- To inject the value or to wire the Laptop object with Alien we need to give the same value as bean id in
+         ref of this property so first we create a bean for the laptop then we give the same value as id to ref
+          -> for primitive values we use value, for reference we use ref, but first we need a bean else it will not work !-->
+        <property name="lap" ref="lap1"></property> <!-- This id here inside the name separates the objects !-->
+    </bean>
+
+    <bean id="lap1" class="com.telusko.Laptop">
+    </bean>
+
+</beans>

@@ -2,6 +2,7 @@ package com.telusko;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.beans.ConstructorProperties;
@@ -13,6 +14,7 @@ import java.beans.ConstructorProperties;
 //so it tells container to scan and get the object
 public class Alien {
 
+    @Value("21") // this annotation is used to inject the value, like even from different file too
     private int age;
 //    private Laptop lap;
 

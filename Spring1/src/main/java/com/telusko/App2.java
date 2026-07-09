@@ -9,7 +9,11 @@ public class App2 {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
+//        Desktop dt = context.getBean("beast", Desktop.class);
         Desktop dt = context.getBean(Desktop.class);
+        dt.compile();
+
+        Desktop dt1 = context.getBean(Desktop.class);
         dt.compile();
     }
 }

@@ -3,9 +3,12 @@ package com.telusko.config;
 import com.telusko.Alien;
 import com.telusko.Computer;
 import com.telusko.Desktop;
+import com.telusko.Laptop;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 //this annotation is required to configure java based app
@@ -13,7 +16,8 @@ import org.springframework.context.annotation.Scope;
 public class AppConfig {
 
     @Bean
-    public Alien alien(@Autowired Computer com) { // using this autowired is optional, it will still work in newer version
+    public Alien alien(Computer com) { // (@Qualifier("desktop")) using this autowired(@Autowired) annotation is optional, it will still work in newer version
+        // so in Qualifier annotation we have to mention the name of method (bean), also we can also use Primary
         Alien obj = new Alien();
         obj.setAge(25);
         obj.setCom(com);
@@ -35,4 +39,10 @@ public class AppConfig {
         return new Desktop();
     }
 
+    // When we create this, it will give error found 2 bean, so to resolve this, we can use annotation @Qualifier(this is similar as ref of XML)
+    @Bean
+    @Primary
+    public Laptop laptop() {
+        return new Laptop();
+    }
 }

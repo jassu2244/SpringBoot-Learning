@@ -42,9 +42,7 @@ public class JobController {
     @GetMapping("viewalljobs")
     public String viewJobs(Model m) {
         List<JobPost> jobs = service.getAllJobs();
-        m.addAttribute("jobPosts", jobs);
-
+        m.addAttribute("jobPosts", jobs); //Model object is used to send data to the view
         return "viewalljobs";
     }
-
 }

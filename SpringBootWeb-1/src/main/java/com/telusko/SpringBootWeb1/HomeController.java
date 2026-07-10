@@ -1,5 +1,7 @@
 package com.telusko.SpringBootWeb1;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,5 +14,18 @@ public class HomeController {
         System.out.println("home method called");
         return "index.jsp"; //this will not work right now because browser don't know which method to call on which
         //request, So we need to first do Mapping
+    }
+
+    @RequestMapping("add") //here we need to pass the url where we want to map
+    public String add(HttpServletRequest req, HttpSession session) {
+
+        int num1 = Integer.parseInt(req.getParameter("num1"));
+        int num2 = Integer.parseInt(req.getParameter("num2"));
+        int result = num1 + num2;
+
+        session.setAttribute("result", result); // here we pass name and result
+
+        return "result.jsp";
+
     }
 }

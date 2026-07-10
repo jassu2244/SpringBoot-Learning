@@ -4,12 +4,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller //this tells spring that this is servlet controller
 public class HomeController {
+
+    //using ModelAttribute at top of method
+    @ModelAttribute("course")
+    public String courseName() {
+        return "Java";
+    }
+
 
     @RequestMapping("/") //this will work, but it will not show the output as by default it does not support jsp page
     //so we need tomcat jasper dependency to show jsp page in the browser
@@ -45,14 +53,24 @@ public class HomeController {
         return mv; //using model and view we don't need to pass the result page like this
     }
 
+//    @RequestMapping("addAlien")
+//    public ModelAndView addAlien(@RequestParam("aid") int aid, @RequestParam("aname") String aname, ModelAndView mv) {
+//        Alien alien=new Alien();
+//        alien.setAid(aid);
+//        alien.setAname(aname);
+//        mv.addObject("alien",alien);
+//        mv.setViewName("result");
+//        return mv;
+//    }
+
+
     @RequestMapping("addAlien")
-    public ModelAndView addAlien(@RequestParam("aid") int aid, @RequestParam("aname") String aname, ModelAndView mv) {
-        Alien alien=new Alien();
-        alien.setAid(aid);
-        alien.setAname(aname);
-        mv.addObject("alien",alien);
-        mv.setViewName("result");
-        return mv;
+    public String addAlien(@ModelAttribute Alien alien) {
+        //this attribute is used to pass data directly from class so we don't have to manually pass the data as
+        // params in method, but still it is optional, ModelAttribute is used when i want to pass different name
+        //so I just have to make name same as of passed in jsp
+        return "result";
     }
+
 
 }

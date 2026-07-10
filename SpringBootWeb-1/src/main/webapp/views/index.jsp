@@ -1,4 +1,4 @@
-<!--
+<%--
 <%@page language="java" %>
 
 <html>
@@ -15,7 +15,9 @@
                     <input type="submit" value="Submit">
             </form>
     </body>
-</html> -->
+</html>
+
+--%>
 
 <%@page language="java" %>
 

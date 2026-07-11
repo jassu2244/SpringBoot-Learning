@@ -1,13 +1,59 @@
 package com.telusko.spring_data_jpa_ex;
 
+import com.telusko.spring_data_jpa_ex.model.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringDataJpaExApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringDataJpaExApplication.class, args);
-	}
+		ApplicationContext context = SpringApplication.run(SpringDataJpaExApplication.class, args);
 
+		StudentRepo repo = context.getBean(StudentRepo.class);
+
+		Student s1 = context.getBean(Student.class);
+		Student s2 = context.getBean(Student.class);
+		Student s3 = context.getBean(Student.class);
+//
+//		s1.setRollNo(101);
+//		s1.setName("Navin");
+//		s1.setMarks(75);
+//
+
+		//this is to add
+//		s2.setRollNo(102);
+//		s2.setName("Kiran");
+//		s2.setMarks(80);
+
+		//this is to update
+		s2.setRollNo(102);
+		s2.setName("Kiran");
+		s2.setMarks(65);
+//
+//		s3.setRollNo(103);
+//		s3.setName("Harsh");
+//		s3.setMarks(70);
+//
+//		repo.save(s2);
+//		repo.save(s3);
+
+//		System.out.println(repo.findAll());
+
+//		Optional<Student> s = repo.findById(104); //if data is not available use Optional to get null object and not error
+//
+//		System.out.println(s.orElse(new Student()));
+
+//		System.out.println(repo.findByName("Navin"));
+
+		//System.out.println(repo.findByMarks(80));
+
+//		System.out.println(repo.findByMarksGreaterThan(80));
+
+		repo.save(s2);
+
+	}
 }

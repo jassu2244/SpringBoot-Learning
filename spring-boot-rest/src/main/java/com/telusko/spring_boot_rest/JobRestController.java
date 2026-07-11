@@ -17,6 +17,8 @@ public class JobRestController {
     @Autowired
     private JobService service;
 
+//    @GetMapping(path = "jobPosts", produces = {"application/json"}) // if you want to force the app to only respond with JSON data
+
     @GetMapping("jobPosts") //also here whatever I pass will become that after "/jobPostss" thing
    // @ResponseBody //by default when we use Controller it searches for view page so we need this annotation to tell browser that
     //we are searching for data and not view page, If we use Rest Controller, we don't need response body annotation
@@ -28,6 +30,9 @@ public class JobRestController {
     public JobPost getJob(@PathVariable("postId") int postId) { //this annotation tells what variable to search in query string
         return service.getJob(postId);
     }
+
+
+//    @PostMapping(path = "jobPost", consumes = "application/xml") //we are telling what it consumes or take (data)
 
     //here we are sending data from client
     @PostMapping("jobPost")

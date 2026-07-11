@@ -53,7 +53,8 @@ public class SpringDataJpaExApplication {
 
 //		System.out.println(repo.findByMarksGreaterThan(80));
 
-		repo.save(s2);
+//		repo.save(s2);
 
+//		repo.delete(s2);
 	}
 }

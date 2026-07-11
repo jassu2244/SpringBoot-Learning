@@ -28,4 +28,25 @@ public class JobRestController {
     public JobPost getJob(@PathVariable("postId") int postId) { //this annotation tells what variable to search in query string
         return service.getJob(postId);
     }
+
+    //here we are sending data from client
+    @PostMapping("jobPost")
+    public JobPost addJob(@RequestBody JobPost jobPost) { // we use request body annotation to send data to server from client
+        //this annotation is very important to send data
+        service.addJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @PutMapping("jobPost")
+    public JobPost updateJob(@RequestBody JobPost jobPost) {
+        service.updateJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @DeleteMapping("jobPost/{postId}")
+    public String deleteJob(@PathVariable("postId") int postId) {
+        service.deleteJob(postId);
+        return "Deleted";
+    }
+
 }

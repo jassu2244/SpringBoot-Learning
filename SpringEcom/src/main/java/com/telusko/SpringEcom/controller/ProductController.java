@@ -69,7 +69,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/product/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable int id) {
+    public ResponseEntity<String> deleteProduct(@PathVariable int id) { //is used to extract a value from the URL path and pass it to a method parameter.
         Product product = productService.getProductById(id);
         if(product != null) {
             productService.deleteProduct(id);
@@ -78,4 +78,12 @@ public class ProductController {
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("products/search")
+    public ResponseEntity<List<Product>> getProducts(@RequestParam String keyword) {
+        List<Product> products = productService.searchProducts(keyword);
+        System.out.println("searching with " + products);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
 }

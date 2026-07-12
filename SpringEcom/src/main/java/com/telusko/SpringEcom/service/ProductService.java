@@ -25,12 +25,24 @@ public class ProductService {
         return productRepo.findById(id).orElse(new Product(-1));
     }
 
-    public Product addProduct(Product product, MultipartFile image) throws IOException {
+    public Product addOrUpdateProduct(Product product, MultipartFile image) throws IOException {
 
         product.setImageName(image.getOriginalFilename());
         product.setImageType(image.getContentType());
         product.setImageData(image.getBytes());
         return productRepo.save(product);
 
+    }
+
+    //as the code for update and add is same so we made same method for both of them
+    //    public Product updateProduct(Product product, MultipartFile image) throws IOException {
+//        product.setImageName(image.getOriginalFilename());
+//        product.setImageType(image.getContentType());
+//        product.setImageData(image.getBytes());
+//        return productRepo.save(product);
+//    }
+
+    public void deleteProduct(int id) {
+        productRepo.deleteById(id);
     }
 }

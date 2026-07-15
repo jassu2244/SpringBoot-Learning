@@ -18,7 +18,6 @@ public class PerformanceMonitorAspect {
     public Object monitorTime(ProceedingJoinPoint jp) throws Throwable {
 
         long start=System.currentTimeMillis();
-
         Object obj= jp.proceed(); //this requires else it will throw an error
         long end=System.currentTimeMillis();
 

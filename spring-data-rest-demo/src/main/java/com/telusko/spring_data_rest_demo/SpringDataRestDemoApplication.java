@@ -9,5 +9,4 @@ public class SpringDataRestDemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataRestDemoApplication.class, args);
 	}
-
 }

@@ -16,5 +16,4 @@ public class HelloController {
     public String about(HttpServletRequest request) {
         return "Telusko" + request.getSession().getId();
     }
-
 }

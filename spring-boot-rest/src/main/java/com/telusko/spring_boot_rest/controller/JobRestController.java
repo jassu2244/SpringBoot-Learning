@@ -1,9 +1,8 @@
-package com.telusko.spring_boot_rest;
+package com.telusko.spring_boot_rest.controller;
 
 import com.telusko.spring_boot_rest.model.JobPost;
 import com.telusko.spring_boot_rest.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

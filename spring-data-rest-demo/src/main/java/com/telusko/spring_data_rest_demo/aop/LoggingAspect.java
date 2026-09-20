@@ -24,20 +24,15 @@ public class LoggingAspect {
         LOGGER.info("Method Called "+jp.getSignature().getName());
     }
 
-
-
     @After("execution (* com.telusko.springbootrest.service.JobService.getJob(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob(..))")
     public void logMethodExecuted(JoinPoint jp) {
         LOGGER.info("Method Executed "+jp.getSignature().getName());
     }
 
-
     @AfterThrowing("execution (* com.telusko.springbootrest.service.JobService.getJob(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob(..))")
     public void logMethodCrashed(JoinPoint jp) {
         LOGGER.info("Method has some issues "+jp.getSignature().getName());
     }
-
-
 
     @AfterReturning("execution (* com.telusko.springbootrest.service.JobService.getJob(..)) || execution(* com.telusko.springbootrest.service.JobService.updateJob(..))")
     public void logMethodExecutedSuccess(JoinPoint jp) {
